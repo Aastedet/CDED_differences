@@ -2,11 +2,8 @@
 
 # 1. Load required packages and read csv files. ----------------------------------------------
 
-
-library(dplyr)
 library(data.table)
 library(here)
-library(snakecase)
 
 
 # Read in all the raw csv files in a list:
@@ -62,7 +59,7 @@ identical(
 View(cbind(elderly_data_list[[6]][, c("patient ID",
                                       "HTN YRS PATIENT MEDICAL HISTORY",
                                       "DM PATIENT MEDICAL HISTORY")],
-           elderly_data_list[[5]][, 1:11])[`patient ID` == `Patient ID`]
+           elderly_data_list[[5]][, 1:11])
 )
 
 
@@ -74,11 +71,10 @@ View(cbind(elderly_data_list[[6]][, c("patient ID",
 head(cbind(elderly_data_list[[6]][, c("patient ID",
                                       "HTN YRS PATIENT MEDICAL HISTORY",
                                       "DM PATIENT MEDICAL HISTORY")],
-           elderly_data_list[[5]][, 1:11])[`patient ID` == `Patient ID`], 10)
+           elderly_data_list[[5]][, 1:11]), 10)
 
 # E.g. in table A1:
 # Subject ID's S0030, S0064, S0068 and S0153 are in the dataset with the same race and height (approximately),
 # but most are recorded as being heavier, and S0030 and S0064 as having HTN in medical records, which is not the case in the dataset.
 
 # Subjects S0121, S0154, S0160, S0163, S0164, S0165 are not in the dataset at all.
-
